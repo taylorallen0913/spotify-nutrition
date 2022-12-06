@@ -7,83 +7,55 @@ interface ListeningStats {
 
 interface NutritionLabelProps {
   listeningStats: ListeningStats[]
+  favoriteGenre: string
 }
 
 export default function NutritionLabel({
   listeningStats,
+  favoriteGenre,
 }: NutritionLabelProps) {
   return (
-    <div className="flex flex-col bg-white border-2 border-black w-1/5 m-20 p-2">
+    <div className="flex flex-col bg-white border-2 border-black w-1/6 m-20 p-2">
       <h1 className="text-5xl font-helvetica-bold text-black font-black">
         Nutrition Facts
       </h1>
       <hr className="my-1 h-px bg-black border-0" />
       <div className="flex items-center font-helvetica text-black">
-        <p className="font-bold text-lg">Yearly Serving Size</p>
-        <p className="ml-auto text-md">12,204 minutes (203.4 hours)</p>
+        <p className="font-bold text-lg">Serving Size</p>
+        <p className="ml-auto text-lg">1 Year (365 days)</p>
       </div>
-      <hr className="my-1 h-3 bg-black border-0" />
+      <hr className="my-1 h-2 bg-black border-0" />
       <div className="flex items-center">
         <div>
           <p className="text-2xl font-helvetica text-black font-bold">
-            Minutes
+            Top Genre
           </p>
-          <p className="text-md font-helvetica text-black font-bold">per day</p>
         </div>
         <div className="ml-auto">
-          <p className="text-4xl font-helvetica text-black font-bold">125</p>
+          <p className="text-lg font-helvetica text-black font-bold">
+            {favoriteGenre}
+          </p>
         </div>
       </div>
-      <hr className="my-1 h-2 bg-black border-0" />
-      <p className="text-xl font-helvetica text-black font-bold ml-auto">
+      <hr className="my-1 h-1 bg-black border-0" />
+      <p className="text-md font-helvetica text-black font-bold ml-auto">
         % Yearly Value*
       </p>
       <hr className="my-1 h-px bg-black border-0" />
 
       {listeningStats.map((stat) => (
-        <div className="flex">
-          <p className="text-xl font-helvetica text-black font-bold">
-            {stat.artistName}
-          </p>
-          <p className="text-xl font-helvetica text-black font-medium ml-auto">
-            `${stat.listeningPercent}%`
-          </p>
-        </div>
+        <>
+          <div className="flex">
+            <p className="text-xl font-helvetica text-black font-bold">
+              {stat.artistName}
+            </p>
+            <p className="text-xl font-helvetica text-black font-bold ml-auto">
+              {stat.listeningPercent}%
+            </p>
+          </div>
+          <hr className="my-1 h-px bg-black border-0" />
+        </>
       ))}
-
-      <hr className="my-1 h-px bg-black border-0" />
-      <div className="flex">
-        <p className="text-xl font-helvetica text-black font-bold">
-          Playboi Carti
-        </p>
-        <p className="text-xl font-helvetica text-black font-medium ml-auto">
-          24%
-        </p>
-      </div>
-      <hr className="my-1 h-px bg-black border-0" />
-      <div className="flex">
-        <p className="text-xl font-helvetica text-black font-bold">
-          Lil Uzi Vert
-        </p>
-        <p className="text-xl font-helvetica text-black font-medium ml-auto">
-          5%
-        </p>
-      </div>
-      <hr className="my-1 h-px bg-black border-0" />
-      <div className="flex">
-        <p className="text-xl font-helvetica text-black font-bold">Lil Durk</p>
-        <p className="text-xl font-helvetica text-black font-medium ml-auto">
-          10%
-        </p>
-      </div>
-      <hr className="my-1 h-px bg-black border-0" />
-      <div className="flex">
-        <p className="text-xl font-helvetica text-black font-bold">midwxst</p>
-        <p className="text-xl font-helvetica text-black font-medium ml-auto">
-          2%
-        </p>
-      </div>
-      <hr className="my-1 h-px bg-black border-0" />
 
       <p className="text-md font-helvetica text-black font-medium">
         *The % Yearly Value tells you how much an artist contributes to a yearly
