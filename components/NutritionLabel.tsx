@@ -22,7 +22,7 @@ export default function NutritionLabel({
       <hr className="my-1 h-px bg-black border-0" />
       <div className="flex items-center font-helvetica text-black">
         <p className="font-bold text-lg">Serving Size</p>
-        <p className="ml-auto text-lg">1 Year (365 days)</p>
+        <p className="ml-auto font-bold text-lg">1 Year (365 days)</p>
       </div>
       <hr className="my-1 h-2 bg-black border-0" />
       <div className="flex items-center">
@@ -49,7 +49,7 @@ export default function NutritionLabel({
             <p className="text-xl font-helvetica text-black font-bold">
               {stat.artistName}
             </p>
-            <p className="text-xl font-helvetica text-black font-bold ml-auto">
+            <p className="text-xl font-helvetica text-black ml-auto">
               {stat.listeningPercent}%
             </p>
           </div>
