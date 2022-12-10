@@ -1,13 +1,11 @@
-import React from 'react'
-
 interface ListeningStats {
-  artistName: string
-  listeningPercent: number
+  artistName: string;
+  listeningPercent: number;
 }
 
 interface NutritionLabelProps {
-  listeningStats: ListeningStats[]
-  favoriteGenre: string
+  listeningStats: ListeningStats[];
+  favoriteGenre: string;
 }
 
 export default function NutritionLabel({
@@ -15,7 +13,7 @@ export default function NutritionLabel({
   favoriteGenre,
 }: NutritionLabelProps) {
   return (
-    <div className="flex flex-col bg-white border-2 border-black w-1/6 m-20 p-2">
+    <div className="flex flex-col bg-white border-2 border-black w-[22rem] m-5 p-2">
       <h1 className="text-5xl font-helvetica-bold text-black font-black">
         Nutrition Facts
       </h1>
@@ -44,7 +42,7 @@ export default function NutritionLabel({
       <hr className="my-1 h-px bg-black border-0" />
 
       {listeningStats.map((stat) => (
-        <>
+        <div key={stat.artistName}>
           <div className="flex">
             <p className="text-xl font-helvetica text-black font-bold">
               {stat.artistName}
@@ -54,7 +52,7 @@ export default function NutritionLabel({
             </p>
           </div>
           <hr className="my-1 h-px bg-black border-0" />
-        </>
+        </div>
       ))}
 
       <p className="text-md font-helvetica text-black font-medium">
@@ -62,5 +60,5 @@ export default function NutritionLabel({
         diet. 57,660 minutes a year is used for general nutrition advice.
       </p>
     </div>
-  )
+  );
 }
