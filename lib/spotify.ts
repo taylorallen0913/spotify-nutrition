@@ -1,4 +1,10 @@
 import axios from 'axios';
+import {
+  CLIENT_ID,
+  CLIENT_SECRET,
+  AUTHORIZATION_ENDPOINT,
+  TOKEN_ENDPOINT,
+} from './constants';
 import { getMostOccuringElement, getOccuranceMap } from './util';
 
 export interface ArtistData {
@@ -7,13 +13,7 @@ export interface ArtistData {
   listeningPercent: number;
 }
 
-const client_id = process.env.SPOTIFY_CLIENT_ID!;
-const client_secret = process.env.SPOTIFY_CLIENT_SECRET!;
-
-const basic = Buffer.from(`${client_id}:${client_secret}`).toString('base64');
-const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`;
-
-export const AUTHORIZATION_ENDPOINT = `https://accounts.spotify.com/authorize?show_dialog=true&client_id=${client_id}&response_type=code&redirect_uri=http%3A%2F%2Flocalhost:3000/&scope=user-top-read%20user-top-read`;
+const basic = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString('base64');
 
 export const getRefreshToken = async (refreshCode: string) => {
   const res = await fetch(TOKEN_ENDPOINT, {
@@ -36,7 +36,6 @@ export const getTopArtistsAndYearlyValue = async (
   accessToken: string,
   numArtists: number
 ): Promise<ArtistData[]> => {
-  // Get listening percent by taking top 50 tracks and comparing how many to artists
   const top50Songs = await axios
     .get(`https://api.spotify.com/v1/me/top/tracks?limit=50`, {
       headers: {
