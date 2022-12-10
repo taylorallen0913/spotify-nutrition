@@ -1,17 +1,7 @@
 import axios from 'axios';
-import {
-  CLIENT_ID,
-  CLIENT_SECRET,
-  AUTHORIZATION_ENDPOINT,
-  TOKEN_ENDPOINT,
-} from './constants';
+import { ArtistData } from '../interfaces/spotify';
+import { CLIENT_ID, CLIENT_SECRET, TOKEN_ENDPOINT } from './constants';
 import { getMostOccuringElement, getOccuranceMap } from './util';
-
-export interface ArtistData {
-  name: string;
-  genres: string[];
-  listeningPercent: number;
-}
 
 const basic = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString('base64');
 

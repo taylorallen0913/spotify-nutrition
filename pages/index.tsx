@@ -1,8 +1,8 @@
 import { GetServerSideProps } from 'next';
-import NutritionLabel from '../components/NutritionLabel';
+import FiberScene from '../components/FiberScene';
+import { ArtistData } from '../interfaces/spotify';
+import { AUTHORIZATION_ENDPOINT } from '../lib/constants';
 import {
-  ArtistData,
-  AUTHORIZATION_ENDPOINT,
   getRefreshToken,
   getTopArtistsAndYearlyValue,
   getTopGenreFromTopArtists,
@@ -24,10 +24,7 @@ function Home({ authEndpoint, topArtists, topGenre }: HomePageProps) {
   return (
     <div>
       {topArtists && (
-        <NutritionLabel
-          listeningStats={listeningStats}
-          favoriteGenre={topGenre}
-        />
+        <FiberScene listeningStats={listeningStats} topGenre={topGenre} />
       )}
 
       <div className="mt-20">

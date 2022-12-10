@@ -1,16 +1,13 @@
-interface ListeningStats {
-  artistName: string;
-  listeningPercent: number;
-}
+import { ListeningStats } from '../interfaces/spotify';
 
 interface NutritionLabelProps {
   listeningStats: ListeningStats[];
-  favoriteGenre: string;
+  topGenre: string;
 }
 
 export default function NutritionLabel({
   listeningStats,
-  favoriteGenre,
+  topGenre,
 }: NutritionLabelProps) {
   return (
     <div className="flex flex-col bg-white border-2 border-black w-[22rem] m-5 p-2">
@@ -31,7 +28,7 @@ export default function NutritionLabel({
         </div>
         <div className="ml-auto">
           <p className="text-lg font-helvetica text-black font-bold">
-            {favoriteGenre}
+            {topGenre}
           </p>
         </div>
       </div>
