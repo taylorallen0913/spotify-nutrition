@@ -9,16 +9,17 @@ interface FiberSceneProps {
   topGenre: string;
 }
 
-function Box({ position }: { position: number[] }) {
+function Box() {
   const colorMap = useLoader(TextureLoader, 'label.png');
   return (
-    <mesh position={position} recieveShadow={true} castShadow={true}>
+    <mesh receiveShadow={true} castShadow={true}>
       <boxBufferGeometry attach="geometry" args={[2, 3, 2]} />
-      <meshBasicMaterial color="gray" map={colorMap} attach="material-0" />
+
+      <meshBasicMaterial color="gray" attach="material-0" />
       <meshBasicMaterial color="gray" attach="material-1" />
       <meshBasicMaterial color="gray" attach="material-2" />
       <meshBasicMaterial color="gray" attach="material-3" />
-      <meshBasicMaterial color="gray" attach="material-4" />
+      <meshBasicMaterial color="gray" map={colorMap} attach="material-4" />
       <meshBasicMaterial color="gray" attach="material-5" />
     </mesh>
   );
@@ -40,7 +41,7 @@ export default function FiberScene({
         <Stars />
         <ambientLight intensity={0.5} />
         <spotLight position={[10, 15, 10]} angle={0.3} />
-        <Box position={[0, 0, 0]} />
+        <Box />
       </Canvas>
       {/* <NutritionLabel listeningStats={listeningStats} topGenre={topGenre} /> */}
     </div>
