@@ -22,19 +22,21 @@ function Home({ authEndpoint, topArtists, topGenre }: HomePageProps) {
   }));
 
   return (
-    <div>
-      {topArtists && (
-        <FiberScene listeningStats={listeningStats} topGenre={topGenre} />
-      )}
+    <div className="h-[100vh] w-[100vw]">
+      <FiberScene listeningStats={[]} topGenre={''} />
 
-      <div className="mt-20">
-        <a
-          href={authEndpoint}
-          className="bg-[#EDF2F4] text-gray-800 p-3 rounded-lg"
-        >
-          Login
-        </a>
-      </div>
+      {/* {topArtists ? (
+        <FiberScene listeningStats={listeningStats} topGenre={topGenre} />
+      ) : (
+        <div className="mt-20">
+          <a
+            href={authEndpoint}
+            className="bg-[#EDF2F4] text-gray-800 p-3 rounded-lg"
+          >
+            Login
+          </a>
+        </div>
+      )} */}
     </div>
   );
 }
